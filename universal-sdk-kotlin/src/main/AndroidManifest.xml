@@ -1,0 +1,66 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.github.coolishbee">
+
+    <application
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name="io.github.coolishbee.auth.GoogleLoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Universal_AuthenticationActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity
+            android:name="io.github.coolishbee.auth.FacebookLoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Universal_AuthenticationActivity" />
+
+        <activity
+            android:name=".auth.AppleLoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Universal_AuthenticationActivity">
+
+            <!-- for OAuth2.0 redirection deep linking -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="callback"
+                    android:scheme="coolish"/>
+
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="io.github.coolishbee.ui.CustomWebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name=
+                "android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+
+</manifest>

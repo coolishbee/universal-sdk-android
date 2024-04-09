@@ -1,0 +1,140 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'maven-publish'  // https://docs.gradle.org/current/userguide/publishing_maven.html
+    id 'signing'        // https://docs.gradle.org/current/userguide/signing_plugin.html
+}
+
+//group = "com.github.coolishbee"
+//archivesBaseName = "universalsdk"
+//version = "3.0.8"
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                group = "com.github.coolishbee"
+                artifactId = "universalsdk"
+                version = "3.0.8"
+            }
+            debug(MavenPublication) {
+                from components.debug
+
+                group = "com.github.coolishbee"
+                artifactId = "universalsdk"
+                version = "3.0.8"
+            }
+        }
+    }
+}
+
+//signing {
+//    def key = findProperty('signingKey')
+//    def pw = findProperty('signingPassword')
+//    required { signingKey != null && signingPassword != null }
+//    useInMemoryPgpKeys(key, pw)
+//    sign publishing.publications
+//}
+//
+//afterEvaluate {
+//    publishing {
+//        // Where to publish
+//        repositories {
+//            maven {
+//                name 'sonatype'
+//                url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+//
+//                def name = findProperty('repositoryUsername') ?: ''
+//                def pw = findProperty('repositoryPassword') ?: ''
+//                credentials {
+//                    username name
+//                    password pw
+//                }
+//            }
+//        }
+//
+//        // What to publish
+//        publications {
+//            release(MavenPublication){
+//                from components.release
+//
+//                artifactId 'universalsdk'
+//
+//                pom {
+//                    name = 'Universal Android SDK'
+//                    description = 'The Universal SDK for Android provides a modern way of implementing open APIs.'
+//                    url = 'https://github.com/coolishbee/universal-sdk-android'
+//                    licenses {
+//                        license {
+//                            name = 'The Apache License, Version 2.0'
+//                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                        }
+//                    }
+//                    developers {
+//                        developer {
+//                            name = 'coolishbee'
+//                            email = 'chc3484@gmail.com'
+//                            url = 'https://chc3484.gitbook.io/sdk/unity-sdk/get-started'
+//                        }
+//                    }
+//                    scm {
+//                        connection = 'scm:git@github.com:coolishbee/universal-sdk-android.git'
+//                        developerConnection = 'scm:git:ssh://github.com:coolishbee/universal-sdk-android.git'
+//                        url = 'https://github.com/coolishbee/universal-sdk-android.git'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
+
+android {
+    compileSdk 33
+    //buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 33
+        versionCode 3_0_8
+        versionName version
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    // Kotlin & Coroutines
+    //implementation 'androidx.core:core-ktx:1.3.2'
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+
+    //google login
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+    //facebook login
+    implementation 'com.facebook.android:facebook-login:16.2.0'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+}

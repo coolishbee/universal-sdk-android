@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SDK Sample Application</string>
+
+    <string name="google_login">구글 로그인</string>
+    <string name="google_link">구글 연동</string>
+    <string name="google_unlink">구글 연동해제</string>
+    <string name="facebook_login">페이스북 로그인</string>
+    <string name="apple_login">애플 로그인</string>
+    <string name="apple_login_v2">애플 로그인v2</string>
+    <string name="logout">로그아웃</string>
+    <string name="inapp_purchase_1">인앱 결제 1000</string>
+    <string name="inapp_purchase_2">인앱 결제 2000</string>
+    <string name="inapp_purchase_3">인앱 결제 3000</string>
+    <string name="custom_tab_view">Custom TabView</string>
+    <string name="popup_dialog">Popup Dialog</string>
+    <string name="image_banner">Image Banner</string>
+
+    <string name="app_policy">AppPolicy</string>
+    <string name="app_update">AppUpdate</string>
+
+    <string name="clear">clear</string>
+
+</resources>

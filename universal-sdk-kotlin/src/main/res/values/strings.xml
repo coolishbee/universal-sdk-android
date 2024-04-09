@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">universal-sdk-android-kotlin</string>
+
+    <string name="facebook_app_id" />
+    <string name="facebook_client_token" />
+    <string name="google_web_client_id" />
+    <string name="apple_client_id" />
+    <string name="redirect_url" />
+
+    <string name="btn_banner_close">close</string>
+    <string name="cb_banner_no_show">Do not open for a day</string>
+
+</resources>
