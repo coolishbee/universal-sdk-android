@@ -18,14 +18,14 @@ afterEvaluate {
 
                 group = "com.github.coolishbee"
                 artifactId = "universalsdk"
-                version = "3.0.8"
+                version = "3.0.9"
             }
             debug(MavenPublication) {
                 from components.debug
 
                 group = "com.github.coolishbee"
                 artifactId = "universalsdk"
-                version = "3.0.8"
+                version = "3.0.9"
             }
         }
     }
